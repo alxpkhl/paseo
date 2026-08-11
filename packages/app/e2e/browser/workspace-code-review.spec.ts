@@ -66,7 +66,7 @@ test.describe("Workspace code review", () => {
     await clickSettingsBackToWorkspace(page);
     const draftCountBefore = await countTabsOfKind(page, "draft");
     const modifier = process.platform === "darwin" ? "Meta" : "Control";
-    await page.keyboard.press(`${modifier}+Alt+R`);
+    await page.keyboard.press(`${modifier}+Shift+R`);
 
     await expect
       .poll(() => countTabsOfKind(page, "draft"), { timeout: 15_000 })

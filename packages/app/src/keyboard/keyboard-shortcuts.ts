@@ -742,9 +742,9 @@ const SHORTCUT_BINDINGS: readonly ShortcutBinding[] = [
 
   // --- Code review ---
   {
-    id: "workspace-review-cmd-alt-r-mac",
+    id: "workspace-review-cmd-shift-r-mac",
     action: "workspace.review.new",
-    combo: "Cmd+Alt+R",
+    combo: "Cmd+Shift+R",
     when: { mac: true, commandCenter: false },
     help: {
       id: "workspace-review",
@@ -753,9 +753,9 @@ const SHORTCUT_BINDINGS: readonly ShortcutBinding[] = [
     },
   },
   {
-    id: "workspace-review-ctrl-alt-r-non-mac",
+    id: "workspace-review-ctrl-shift-r-non-mac",
     action: "workspace.review.new",
-    combo: "Ctrl+Alt+R",
+    combo: "Ctrl+Shift+R",
     when: { mac: false, commandCenter: false, terminal: false },
     help: {
       id: "workspace-review",
