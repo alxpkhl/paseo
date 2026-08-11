@@ -374,6 +374,9 @@ export const ja: TranslationResources = {
     },
   },
   workspace: {
+    codeReview: {
+      unavailable: "設定で利用可能なレビューモデルを選択してください",
+    },
     route: {
       loading: "ワークスペースを読み込み中",
       connecting: "接続中",
@@ -1747,6 +1750,7 @@ export const ja: TranslationResources = {
       general: "一般",
       appearance: "外観",
       editor: "エディター",
+      review: "レビュー",
       shortcuts: "ショートカット",
       integrations: "連携",
       notifications: "通知",
@@ -1850,6 +1854,28 @@ export const ja: TranslationResources = {
           ru: "ロシア語",
           zhCN: "簡体字中国語",
         },
+      },
+    },
+    codeReview: {
+      reviewer: { title: "レビュー担当" },
+      model: {
+        label: "レビューモデル",
+        description: "新しいコードレビュータブで使用するモデル",
+        placeholder: "モデルを選択",
+      },
+      thinking: {
+        label: "レビューの思考レベル",
+        description: "コードレビューで使用する思考レベル",
+        placeholder: "思考レベルを選択",
+        empty: "思考オプションがありません",
+      },
+      prompt: {
+        title: "レビュープロンプト",
+        accessibilityLabel: "コードレビュープロンプト",
+        required: "レビュープロンプトは必須です",
+        reset: "既定値に戻す",
+        save: "保存",
+        saving: "保存中...",
       },
     },
     diagnostics: {
@@ -1983,6 +2009,7 @@ export const ja: TranslationResources = {
         newWorktree: "新しいワークツリー",
         archiveWorkspace: "ワークスペースをアーカイブ",
         newTab: "新しいタブ",
+        reviewWorkspace: "ワークスペースをレビュー",
         closeCurrentTab: "現在のタブを閉じる",
         jumpToWorkspace: "ワークスペースにジャンプ",
         jumpToTab: "タブにジャンプ",

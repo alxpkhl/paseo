@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { CreateAgentPreferencesService } from "./service";
 import {
+  mergeCodeReviewPreferences,
   mergeCreateAgentSelectionPreferences,
   mergeProviderPreferences,
   parseFormPreferences,
@@ -187,5 +188,41 @@ describe("create agent preferences", () => {
 
   it("rejects an unknown launch target kind as invalid stored preferences", () => {
     expect(parseFormPreferences({ launchTarget: { kind: "shell" } })).toEqual({});
+  });
+
+  it("persists review defaults without changing normal agent defaults", async () => {
+    const storage = new FakeCreateAgentPreferenceStorage({
+      stored: {
+        provider: "claude",
+        providerPreferences: { claude: { model: "sonnet" } },
+      },
+    });
+    const preferences = new CreateAgentPreferencesService(storage);
+
+    const save = preferences.update((current) =>
+      mergeCodeReviewPreferences({
+        preferences: current,
+        updates: {
+          provider: "codex",
+          model: "gpt-5.6-codex",
+          thinkingOptionId: "high",
+          prompt: "Review these changes.",
+        },
+      }),
+    );
+    await storage.nextWrite();
+    storage.finishOldestWrite();
+    await save;
+
+    expect(storage.savedPreferences()).toEqual({
+      provider: "claude",
+      providerPreferences: { claude: { model: "sonnet" } },
+      codeReview: {
+        provider: "codex",
+        model: "gpt-5.6-codex",
+        thinkingOptionId: "high",
+        prompt: "Review these changes.",
+      },
+    });
   });
 });

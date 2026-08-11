@@ -28,6 +28,7 @@ export type KeyboardActionId =
   | "workspace.focus.toggle"
   | "workspace.terminal.new"
   | "workspace.browser.new"
+  | "workspace.review.new"
   | "sidebar.toggle.right"
   | "workspace.new"
   | "workspace.project.pick"
@@ -63,6 +64,7 @@ export type KeyboardActionDefinition =
   | { id: "workspace.focus.toggle"; scope: KeyboardActionScope }
   | { id: "workspace.terminal.new"; scope: KeyboardActionScope }
   | { id: "workspace.browser.new"; scope: KeyboardActionScope }
+  | { id: "workspace.review.new"; scope: KeyboardActionScope }
   | { id: "sidebar.toggle.right"; scope: KeyboardActionScope }
   | { id: "workspace.new"; scope: KeyboardActionScope }
   | { id: "workspace.project.pick"; scope: KeyboardActionScope }

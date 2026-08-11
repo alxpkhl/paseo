@@ -262,6 +262,10 @@ describe("host settings section slugs", () => {
 });
 
 describe("settings section slugs", () => {
+  it("includes code review settings", () => {
+    expect(isSettingsSectionSlug("review")).toBe(true);
+  });
+
   it("includes desktop notification settings", () => {
     expect(isSettingsSectionSlug("notifications")).toBe(true);
   });

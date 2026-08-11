@@ -4,8 +4,10 @@ import {
   buildFavoriteModelKey,
   DEFAULT_FORM_PREFERENCES,
   isFavoriteModel,
+  mergeCodeReviewPreferences,
   mergeProviderPreferences,
   toggleFavoriteModel,
+  type CodeReviewPreferences,
   type FavoriteModelPreference,
   type FavoriteModelRow,
   type FormPreferences,
@@ -18,9 +20,21 @@ import {
 
 const FORM_PREFERENCES_QUERY_KEY = ["form-preferences"];
 
-export type { FavoriteModelPreference, FavoriteModelRow, FormPreferences, ProviderPreferences };
+export type {
+  CodeReviewPreferences,
+  FavoriteModelPreference,
+  FavoriteModelRow,
+  FormPreferences,
+  ProviderPreferences,
+};
 
-export { buildFavoriteModelKey, isFavoriteModel, mergeProviderPreferences, toggleFavoriteModel };
+export {
+  buildFavoriteModelKey,
+  isFavoriteModel,
+  mergeCodeReviewPreferences,
+  mergeProviderPreferences,
+  toggleFavoriteModel,
+};
 
 async function loadFormPreferences(): Promise<FormPreferences> {
   return createAgentPreferencesService.load();

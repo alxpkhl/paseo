@@ -374,6 +374,9 @@ export const es: TranslationResources = {
     },
   },
   workspace: {
+    codeReview: {
+      unavailable: "Configura un modelo de revisión disponible en Ajustes",
+    },
     route: {
       loading: "Cargando espacio de trabajo",
       connecting: "Conectando",
@@ -1774,6 +1777,7 @@ export const es: TranslationResources = {
       general: "General",
       appearance: "Apariencia",
       editor: "Editor",
+      review: "Revisión",
       shortcuts: "Atajos",
       integrations: "Integraciones",
       notifications: "Notificaciones",
@@ -1882,6 +1886,28 @@ export const es: TranslationResources = {
           ru: "Русский",
           zhCN: "中文",
         },
+      },
+    },
+    codeReview: {
+      reviewer: { title: "Revisor" },
+      model: {
+        label: "Modelo de revisión",
+        description: "Modelo usado para nuevas pestañas de revisión de código",
+        placeholder: "Seleccionar un modelo",
+      },
+      thinking: {
+        label: "Razonamiento de revisión",
+        description: "Nivel de razonamiento usado para revisar código",
+        placeholder: "Seleccionar razonamiento",
+        empty: "No se encontraron opciones de razonamiento",
+      },
+      prompt: {
+        title: "Prompt de revisión",
+        accessibilityLabel: "Prompt de revisión de código",
+        required: "El prompt de revisión es obligatorio",
+        reset: "Restablecer",
+        save: "Guardar",
+        saving: "Guardando...",
       },
     },
     diagnostics: {
@@ -2015,6 +2041,7 @@ export const es: TranslationResources = {
         newWorktree: "Nuevo árbol de trabajo",
         archiveWorkspace: "Archivar espacio de trabajo",
         newTab: "Nueva pestaña",
+        reviewWorkspace: "Revisar espacio de trabajo",
         closeCurrentTab: "Cerrar pestaña actual",
         jumpToWorkspace: "Saltar al espacio de trabajo",
         jumpToTab: "Saltar a la pestaña",

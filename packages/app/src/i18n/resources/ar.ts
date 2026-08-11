@@ -371,6 +371,9 @@ export const ar: TranslationResources = {
     },
   },
   workspace: {
+    codeReview: {
+      unavailable: "اضبط نموذج مراجعة متاحًا في الإعدادات",
+    },
     route: {
       loading: "جارٍ تحميل مساحة العمل",
       connecting: "الاتصال",
@@ -1731,6 +1734,7 @@ export const ar: TranslationResources = {
       general: "عام",
       appearance: "مظهر",
       editor: "المحرر",
+      review: "المراجعة",
       shortcuts: "الاختصارات",
       integrations: "التكامل",
       notifications: "الإشعارات",
@@ -1835,6 +1839,28 @@ export const ar: TranslationResources = {
           ru: "Русский",
           zhCN: "中文",
         },
+      },
+    },
+    codeReview: {
+      reviewer: { title: "المراجع" },
+      model: {
+        label: "نموذج المراجعة",
+        description: "النموذج المستخدم لعلامات تبويب مراجعة الكود الجديدة",
+        placeholder: "اختر نموذجًا",
+      },
+      thinking: {
+        label: "تفكير المراجعة",
+        description: "مستوى التفكير المستخدم لمراجعة الكود",
+        placeholder: "اختر مستوى التفكير",
+        empty: "لا توجد خيارات تفكير",
+      },
+      prompt: {
+        title: "موجه المراجعة",
+        accessibilityLabel: "موجه مراجعة الكود",
+        required: "موجه المراجعة مطلوب",
+        reset: "إعادة الضبط",
+        save: "حفظ",
+        saving: "جارٍ الحفظ...",
       },
     },
     diagnostics: {
@@ -1967,6 +1993,7 @@ export const ar: TranslationResources = {
         newWorktree: "شجرة عمل جديدة",
         archiveWorkspace: "أرشفة مساحة العمل",
         newTab: "علامة تبويب جديدة",
+        reviewWorkspace: "مراجعة مساحة العمل",
         closeCurrentTab: "إغلاق علامة التبويب الحالية",
         jumpToWorkspace: "انتقل إلى مساحة العمل",
         jumpToTab: "انتقل إلى علامة التبويب",

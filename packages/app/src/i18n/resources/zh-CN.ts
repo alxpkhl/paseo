@@ -371,6 +371,9 @@ export const zhCN: TranslationResources = {
     },
   },
   workspace: {
+    codeReview: {
+      unavailable: "请在设置中配置可用的审查模型",
+    },
     route: {
       loading: "正在加载 workspace",
       connecting: "正在连接",
@@ -1711,6 +1714,7 @@ export const zhCN: TranslationResources = {
       general: "通用",
       appearance: "外观",
       editor: "编辑器",
+      review: "审查",
       shortcuts: "快捷键",
       integrations: "集成",
       notifications: "通知",
@@ -1814,6 +1818,28 @@ export const zhCN: TranslationResources = {
           ru: "Русский",
           zhCN: "简体中文",
         },
+      },
+    },
+    codeReview: {
+      reviewer: { title: "审查器" },
+      model: {
+        label: "审查模型",
+        description: "用于新代码审查标签页的模型",
+        placeholder: "选择模型",
+      },
+      thinking: {
+        label: "审查思考级别",
+        description: "代码审查使用的思考级别",
+        placeholder: "选择思考级别",
+        empty: "未找到思考选项",
+      },
+      prompt: {
+        title: "审查提示词",
+        accessibilityLabel: "代码审查提示词",
+        required: "必须填写审查提示词",
+        reset: "恢复默认",
+        save: "保存",
+        saving: "正在保存...",
       },
     },
     diagnostics: {
@@ -1945,6 +1971,7 @@ export const zhCN: TranslationResources = {
         newWorktree: "新建 worktree",
         archiveWorkspace: "归档工作区",
         newTab: "新建标签",
+        reviewWorkspace: "审查工作区",
         closeCurrentTab: "关闭当前标签",
         jumpToWorkspace: "跳转到 workspace",
         jumpToTab: "跳转到标签",

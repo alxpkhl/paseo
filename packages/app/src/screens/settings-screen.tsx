@@ -35,6 +35,7 @@ import {
   FolderGit2,
   SquareTerminal,
   Code2,
+  Search,
   Smartphone,
 } from "lucide-react-native";
 import { DropdownTrigger } from "@/components/ui/dropdown-trigger";
@@ -73,6 +74,7 @@ import { AddHostModal } from "@/components/add-host-modal";
 import { PairLinkModal } from "@/components/pair-link-modal";
 import { KeyboardShortcutsSection } from "@/screens/settings/keyboard-shortcuts-section";
 import { EditorSection } from "@/screens/settings/editor-section";
+import { CodeReviewSection } from "@/screens/settings/code-review-section";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { CommunityLinks } from "@/components/community-links";
@@ -149,6 +151,7 @@ const SIDEBAR_SECTION_ITEMS: SidebarSectionItem[] = [
   { id: "general", labelKey: "settings.sections.general", icon: Settings },
   { id: "appearance", labelKey: "settings.sections.appearance", icon: Palette },
   { id: "editor", labelKey: "settings.sections.editor", icon: Code2 },
+  { id: "review", labelKey: "settings.sections.review", icon: Search },
   { id: "shortcuts", labelKey: "settings.sections.shortcuts", icon: Keyboard, desktopOnly: true },
   {
     id: "integrations",
@@ -1431,6 +1434,8 @@ export default function SettingsScreen({ view, openAddHostIntent = null }: Setti
           return <AppearanceSection />;
         case "editor":
           return <EditorSection />;
+        case "review":
+          return <CodeReviewSection serverId={activeHostServerId} />;
         case "shortcuts":
           return isDesktopApp ? <KeyboardShortcutsSection /> : null;
         case "integrations":

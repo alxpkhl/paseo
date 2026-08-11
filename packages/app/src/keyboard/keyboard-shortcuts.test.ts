@@ -144,6 +144,18 @@ describe("keyboard-shortcuts", () => {
       action: "workspace.new",
     },
     {
+      name: "matches Cmd+Alt+R to review the current workspace on mac",
+      event: { key: "r", code: "KeyR", metaKey: true, altKey: true },
+      context: { isMac: true, isDesktop: false, commandCenterOpen: false },
+      action: "workspace.review.new",
+    },
+    {
+      name: "matches Ctrl+Alt+R to review the current workspace on non-mac",
+      event: { key: "r", code: "KeyR", ctrlKey: true, altKey: true },
+      context: { isMac: false, isDesktop: false, commandCenterOpen: false },
+      action: "workspace.review.new",
+    },
+    {
       name: "matches Ctrl+N to create new workspace on non-mac",
       event: { key: "n", code: "KeyN", ctrlKey: true },
       context: { isMac: false, commandCenterOpen: false, focusScope: "other" },
@@ -645,6 +657,7 @@ describe("keyboard-shortcut help sections", () => {
         "new-agent": ["mod", "O"],
         "new-workspace": ["mod", "N"],
         "workspace-tab-new": ["mod", "T"],
+        "workspace-review": ["mod", "alt", "R"],
         "workspace-jump-index": ["mod", "1-9"],
         "workspace-tab-jump-index": ["mod", "alt", "1-9"],
         // Derived from `combo: "Cmd+W"`, so the token is `mod` where the row
@@ -662,6 +675,7 @@ describe("keyboard-shortcut help sections", () => {
       expectedKeys: {
         "workspace-tab-jump-index": ["alt", "1-9"],
         "workspace-tab-close-current": ["ctrl", "W"],
+        "workspace-review": ["ctrl", "alt", "R"],
       },
     },
     {

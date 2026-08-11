@@ -111,6 +111,9 @@ import { createWorkspaceBrowser, useBrowserStore } from "@/desktop/browser/store
 import { getDesktopHost } from "@/desktop/host";
 import { buildProviderCommand } from "@/utils/provider-command-templates";
 import { generateDraftId } from "@/stores/draft-keys";
+import { useDraftStore } from "@/stores/draft-store";
+import { useCodeReviewPreferences } from "@/code-review/use-code-review-preferences";
+import { openCodeReviewWorkspaceDraft } from "@/code-review/workspace-draft";
 import { resolveWorkspaceRouteId } from "@/utils/workspace-identity";
 import {
   WorkspaceTabPresentationResolver,
@@ -1735,6 +1738,10 @@ function WorkspaceScreenContent({
     (state) => state.sessions[normalizedServerId]?.serverInfo?.features?.providersSnapshot === true,
   );
   const workspaceDirectory = workspaceDescriptor?.workspaceDirectory || null;
+  const codeReviewPreferences = useCodeReviewPreferences({
+    serverId: normalizedServerId,
+    cwd: workspaceDirectory,
+  });
   const isMissingWorkspaceDirectory = Boolean(workspaceDescriptor) && !workspaceDirectory;
   const [isImportSheetVisible, setIsImportSheetVisible] = useState(false);
   const canOpenImportSheet = [client, isConnected, workspaceDirectory].every(Boolean);
@@ -2120,6 +2127,31 @@ function WorkspaceScreenContent({
     },
     [openWorkspaceTabFocused, openWorkspaceTabInBackground, persistenceKey],
   );
+
+  const handleCreateCodeReview = useCallback(() => {
+    openCodeReviewWorkspaceDraft({
+      serverId: normalizedServerId,
+      cwd: workspaceDirectory,
+      persistenceKey,
+      prompt: codeReviewPreferences.prompt,
+      selection: codeReviewPreferences.selection,
+      draftId: generateDraftId(),
+      saveDraftInput: useDraftStore.getState().saveDraftInput,
+      openTabFocused: openWorkspaceTabFocused,
+      onUnavailable: () => {
+        toast.error(t("workspace.codeReview.unavailable"));
+      },
+    });
+  }, [
+    codeReviewPreferences.prompt,
+    codeReviewPreferences.selection,
+    normalizedServerId,
+    openWorkspaceTabFocused,
+    persistenceKey,
+    t,
+    toast,
+    workspaceDirectory,
+  ]);
 
   useEffect(() => {
     if (!isRouteFocused) {
@@ -3029,6 +3061,9 @@ function WorkspaceScreenContent({
         case "workspace.browser.new":
           handleCreateBrowserTab();
           return true;
+        case "workspace.review.new":
+          handleCreateCodeReview();
+          return true;
         case "workspace.tab.close-current":
           if (activeTabId) {
             void handleCloseTabById(activeTabId);
@@ -3062,6 +3097,7 @@ function WorkspaceScreenContent({
       handleCloseTabById,
       handleCreateDraftTab,
       handleCreateBrowserTab,
+      handleCreateCodeReview,
       handleCreateTerminal,
       navigateToTabId,
       tabs,
@@ -3177,6 +3213,7 @@ function WorkspaceScreenContent({
       "workspace.tab.navigate-relative",
       "workspace.terminal.new",
       "workspace.browser.new",
+      "workspace.review.new",
     ] as const,
     enabled: Boolean(isRouteFocused && normalizedServerId && normalizedWorkspaceId),
     priority: 100,

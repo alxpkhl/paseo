@@ -22,6 +22,7 @@ const SECTION_LABELS = {
   general: "General",
   appearance: "Appearance",
   editor: "Editor",
+  review: "Review",
   shortcuts: "Shortcuts",
   integrations: "Integrations",
   permissions: "Permissions",

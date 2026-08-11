@@ -370,6 +370,9 @@ export const en = {
     },
   },
   workspace: {
+    codeReview: {
+      unavailable: "Configure an available review model in Settings",
+    },
     route: {
       loading: "Loading workspace",
       connecting: "Connecting",
@@ -1742,6 +1745,7 @@ export const en = {
       general: "General",
       appearance: "Appearance",
       editor: "Editor",
+      review: "Review",
       shortcuts: "Shortcuts",
       integrations: "Integrations",
       notifications: "Notifications",
@@ -1845,6 +1849,30 @@ export const en = {
           ru: "Russian",
           zhCN: "Simplified Chinese",
         },
+      },
+    },
+    codeReview: {
+      reviewer: {
+        title: "Reviewer",
+      },
+      model: {
+        label: "Review model",
+        description: "Model used for new code review tabs",
+        placeholder: "Select a model",
+      },
+      thinking: {
+        label: "Review thinking",
+        description: "Thinking level used for code review",
+        placeholder: "Select thinking",
+        empty: "No thinking options found",
+      },
+      prompt: {
+        title: "Review prompt",
+        accessibilityLabel: "Code review prompt",
+        required: "Review prompt is required",
+        reset: "Reset to default",
+        save: "Save",
+        saving: "Saving...",
       },
     },
     diagnostics: {
@@ -1977,6 +2005,7 @@ export const en = {
         newWorktree: "New worktree",
         archiveWorkspace: "Archive workspace",
         newTab: "New tab",
+        reviewWorkspace: "Review workspace",
         closeCurrentTab: "Close current tab",
         jumpToWorkspace: "Jump to workspace",
         jumpToTab: "Jump to tab",

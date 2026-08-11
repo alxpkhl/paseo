@@ -375,6 +375,9 @@ export const fr: TranslationResources = {
     },
   },
   workspace: {
+    codeReview: {
+      unavailable: "Configurez un modèle de revue disponible dans les réglages",
+    },
     route: {
       loading: "Chargement de l'espace de travail",
       connecting: "De liaison",
@@ -1778,6 +1781,7 @@ export const fr: TranslationResources = {
       general: "Général",
       appearance: "Apparence",
       editor: "Éditeur",
+      review: "Revue",
       shortcuts: "Raccourcis",
       integrations: "Intégrations",
       notifications: "Notifications",
@@ -1884,6 +1888,28 @@ export const fr: TranslationResources = {
           ru: "Русский",
           zhCN: "中文",
         },
+      },
+    },
+    codeReview: {
+      reviewer: { title: "Relecteur" },
+      model: {
+        label: "Modèle de revue",
+        description: "Modèle utilisé pour les nouveaux onglets de revue de code",
+        placeholder: "Sélectionner un modèle",
+      },
+      thinking: {
+        label: "Réflexion de revue",
+        description: "Niveau de réflexion utilisé pour la revue de code",
+        placeholder: "Sélectionner la réflexion",
+        empty: "Aucune option de réflexion trouvée",
+      },
+      prompt: {
+        title: "Prompt de revue",
+        accessibilityLabel: "Prompt de revue de code",
+        required: "Le prompt de revue est requis",
+        reset: "Réinitialiser",
+        save: "Enregistrer",
+        saving: "Enregistrement...",
       },
     },
     diagnostics: {
@@ -2018,6 +2044,7 @@ export const fr: TranslationResources = {
         newWorktree: "Nouvel arbre de travail",
         archiveWorkspace: "Archiver l’espace de travail",
         newTab: "Nouvel onglet",
+        reviewWorkspace: "Réviser l’espace de travail",
         closeCurrentTab: "Fermer l'onglet actuel",
         jumpToWorkspace: "Accéder à l'espace de travail",
         jumpToTab: "Aller à l'onglet",

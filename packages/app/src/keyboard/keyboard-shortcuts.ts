@@ -171,6 +171,7 @@ export const SHORTCUT_HELP_ROW_ORDER: Record<ShortcutSectionId, readonly string[
   ],
   "tabs-panes": [
     "workspace-tab-new",
+    "workspace-review",
     "workspace-terminal-new",
     "workspace-tab-close-current",
     "workspace-tab-jump-index",
@@ -205,6 +206,7 @@ const SHORTCUT_HELP_LABEL_KEYS: Record<string, string> = {
   "switch-project": "settings.shortcuts.help.switchProject",
   "archive-workspace": "settings.shortcuts.help.archiveWorkspace",
   "workspace-tab-new": "settings.shortcuts.help.newTab",
+  "workspace-review": "settings.shortcuts.help.reviewWorkspace",
   "workspace-tab-close-current": "settings.shortcuts.help.closeCurrentTab",
   "workspace-jump-index": "settings.shortcuts.help.jumpToWorkspace",
   "workspace-tab-jump-index": "settings.shortcuts.help.jumpToTab",
@@ -735,6 +737,30 @@ const SHORTCUT_BINDINGS: readonly ShortcutBinding[] = [
       id: "workspace-pane-close",
       section: "tabs-panes",
       label: "Close pane",
+    },
+  },
+
+  // --- Code review ---
+  {
+    id: "workspace-review-cmd-alt-r-mac",
+    action: "workspace.review.new",
+    combo: "Cmd+Alt+R",
+    when: { mac: true, commandCenter: false },
+    help: {
+      id: "workspace-review",
+      section: "tabs-panes",
+      label: "Review workspace",
+    },
+  },
+  {
+    id: "workspace-review-ctrl-alt-r-non-mac",
+    action: "workspace.review.new",
+    combo: "Ctrl+Alt+R",
+    when: { mac: false, commandCenter: false, terminal: false },
+    help: {
+      id: "workspace-review",
+      section: "tabs-panes",
+      label: "Review workspace",
     },
   },
 

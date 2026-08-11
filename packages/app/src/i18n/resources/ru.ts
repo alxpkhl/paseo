@@ -373,6 +373,9 @@ export const ru: TranslationResources = {
     },
   },
   workspace: {
+    codeReview: {
+      unavailable: "Настройте доступную модель ревью в настройках",
+    },
     route: {
       loading: "Загрузка рабочей области",
       connecting: "Подключение",
@@ -1765,6 +1768,7 @@ export const ru: TranslationResources = {
       general: "Общий",
       appearance: "Появление",
       editor: "Редактор",
+      review: "Ревью",
       shortcuts: "Ярлыки",
       integrations: "Интеграции",
       notifications: "Уведомления",
@@ -1870,6 +1874,28 @@ export const ru: TranslationResources = {
           ru: "Русский",
           zhCN: "中文",
         },
+      },
+    },
+    codeReview: {
+      reviewer: { title: "Ревьюер" },
+      model: {
+        label: "Модель для ревью",
+        description: "Модель для новых вкладок ревью кода",
+        placeholder: "Выберите модель",
+      },
+      thinking: {
+        label: "Глубина рассуждений",
+        description: "Уровень рассуждений для ревью кода",
+        placeholder: "Выберите уровень",
+        empty: "Варианты рассуждений не найдены",
+      },
+      prompt: {
+        title: "Промпт ревью",
+        accessibilityLabel: "Промпт для ревью кода",
+        required: "Промпт ревью обязателен",
+        reset: "Сбросить",
+        save: "Сохранить",
+        saving: "Сохранение...",
       },
     },
     diagnostics: {
@@ -2005,6 +2031,7 @@ export const ru: TranslationResources = {
         newWorktree: "Новое рабочее дерево",
         archiveWorkspace: "Архивировать рабочее пространство",
         newTab: "Новая вкладка",
+        reviewWorkspace: "Провести ревью рабочего пространства",
         closeCurrentTab: "Закрыть текущую вкладку",
         jumpToWorkspace: "Перейти в рабочую область",
         jumpToTab: "Перейти на вкладку",

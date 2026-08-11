@@ -374,6 +374,9 @@ export const ptBR: TranslationResources = {
     },
   },
   workspace: {
+    codeReview: {
+      unavailable: "Configure um modelo de revisão disponível nas Configurações",
+    },
     route: {
       loading: "Carregando workspace",
       connecting: "Conectando",
@@ -1760,6 +1763,7 @@ export const ptBR: TranslationResources = {
       general: "Geral",
       appearance: "Aparência",
       editor: "Editor",
+      review: "Revisão",
       shortcuts: "Atalhos",
       integrations: "Integrações",
       notifications: "Notificações",
@@ -1866,6 +1870,28 @@ export const ptBR: TranslationResources = {
           ru: "Russo",
           zhCN: "Chinês simplificado",
         },
+      },
+    },
+    codeReview: {
+      reviewer: { title: "Revisor" },
+      model: {
+        label: "Modelo de revisão",
+        description: "Modelo usado em novas abas de revisão de código",
+        placeholder: "Selecionar um modelo",
+      },
+      thinking: {
+        label: "Raciocínio da revisão",
+        description: "Nível de raciocínio usado na revisão de código",
+        placeholder: "Selecionar raciocínio",
+        empty: "Nenhuma opção de raciocínio encontrada",
+      },
+      prompt: {
+        title: "Prompt de revisão",
+        accessibilityLabel: "Prompt de revisão de código",
+        required: "O prompt de revisão é obrigatório",
+        reset: "Restaurar padrão",
+        save: "Salvar",
+        saving: "Salvando...",
       },
     },
     diagnostics: {
@@ -1998,6 +2024,7 @@ export const ptBR: TranslationResources = {
         newWorktree: "Novo worktree",
         archiveWorkspace: "Arquivar workspace",
         newTab: "Nova aba",
+        reviewWorkspace: "Revisar espaço de trabalho",
         closeCurrentTab: "Fechar aba atual",
         jumpToWorkspace: "Ir para workspace",
         jumpToTab: "Ir para aba",

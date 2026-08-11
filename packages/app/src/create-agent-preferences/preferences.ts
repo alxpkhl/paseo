@@ -27,6 +27,13 @@ const launchTargetSchema = z.discriminatedUnion("kind", [
   z.object({ kind: z.literal("terminal"), profileId: z.string() }),
 ]);
 
+const codeReviewPreferencesSchema = z.object({
+  provider: z.string().optional(),
+  model: z.string().optional(),
+  thinkingOptionId: z.string().optional(),
+  prompt: z.string().optional(),
+});
+
 const formPreferencesSchema = z.object({
   provider: z.string().optional(),
   providerPreferences: z.record(z.string(), providerPreferencesSchema).optional(),
@@ -42,11 +49,13 @@ const formPreferencesSchema = z.object({
   // What the New workspace composer submits to: the chat agent (default) or a
   // terminal profile. See `@/new-workspace-launch` for resolution/fallback.
   launchTarget: launchTargetSchema.optional(),
+  codeReview: codeReviewPreferencesSchema.optional(),
 });
 
 export type ProviderPreferences = z.infer<typeof providerPreferencesSchema>;
 export type FormPreferences = z.infer<typeof formPreferencesSchema>;
 export type LaunchTarget = z.infer<typeof launchTargetSchema>;
+export type CodeReviewPreferences = z.infer<typeof codeReviewPreferencesSchema>;
 
 export const DEFAULT_FORM_PREFERENCES: FormPreferences = {};
 
@@ -137,6 +146,19 @@ export function mergeCreateAgentSelectionPreferences(args: {
       ...(args.featureValues ? { featureValues: args.featureValues } : {}),
     },
   });
+}
+
+export function mergeCodeReviewPreferences(args: {
+  preferences: FormPreferences;
+  updates: Partial<CodeReviewPreferences>;
+}): FormPreferences {
+  return {
+    ...args.preferences,
+    codeReview: {
+      ...args.preferences.codeReview,
+      ...args.updates,
+    },
+  };
 }
 
 export function buildFavoriteModelKey(input: FavoriteModelPreference): string {

@@ -372,6 +372,9 @@ export const ko: TranslationResources = {
     },
   },
   workspace: {
+    codeReview: {
+      unavailable: "설정에서 사용 가능한 리뷰 모델을 선택하세요",
+    },
     route: {
       loading: "워크스페이스 불러오는 중",
       connecting: "연결 중",
@@ -1741,6 +1744,7 @@ export const ko: TranslationResources = {
       general: "일반",
       appearance: "모양",
       editor: "편집기",
+      review: "리뷰",
       shortcuts: "단축키",
       integrations: "통합",
       notifications: "알림",
@@ -1846,6 +1850,28 @@ export const ko: TranslationResources = {
           ru: "Русский",
           zhCN: "简体中文",
         },
+      },
+    },
+    codeReview: {
+      reviewer: { title: "리뷰어" },
+      model: {
+        label: "리뷰 모델",
+        description: "새 코드 리뷰 탭에 사용할 모델",
+        placeholder: "모델 선택",
+      },
+      thinking: {
+        label: "리뷰 사고 수준",
+        description: "코드 리뷰에 사용할 사고 수준",
+        placeholder: "사고 수준 선택",
+        empty: "사고 옵션이 없습니다",
+      },
+      prompt: {
+        title: "리뷰 프롬프트",
+        accessibilityLabel: "코드 리뷰 프롬프트",
+        required: "리뷰 프롬프트가 필요합니다",
+        reset: "기본값으로 재설정",
+        save: "저장",
+        saving: "저장 중...",
       },
     },
     diagnostics: {
@@ -1978,6 +2004,7 @@ export const ko: TranslationResources = {
         newWorktree: "새 워크트리",
         archiveWorkspace: "워크스페이스 보관",
         newTab: "새 탭",
+        reviewWorkspace: "작업 공간 리뷰",
         closeCurrentTab: "현재 탭 닫기",
         jumpToWorkspace: "워크스페이스로 이동",
         jumpToTab: "탭으로 이동",
