@@ -196,11 +196,13 @@ export function classifyBrowserReservedShortcut(
   const hasPlatformModifier = platform.isMac
     ? input.meta && !input.control
     : input.control && !input.meta;
-  if (input.type !== "keyDown" || input.alt || !hasPlatformModifier) {
+  if (input.type !== "keyDown" || !hasPlatformModifier) {
     return null;
   }
   const key = input.key.toLowerCase();
-  if (!input.shift && key === "l") return "focus-url";
+  if (!input.alt && !input.shift && key === "l") return "focus-url";
   if (key !== "r") return null;
-  return input.shift ? "force-reload" : "reload";
+  if (!input.alt && !input.shift) return "reload";
+  if (input.alt && input.shift) return "force-reload";
+  return null;
 }

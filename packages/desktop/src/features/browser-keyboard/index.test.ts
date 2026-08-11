@@ -328,6 +328,44 @@ describe("BrowserKeyboard", () => {
     expect(guest.ignoredMenuShortcuts).toEqual([true]);
   });
 
+  test("leaves the review shortcut to policy instead of force reloading the browser", () => {
+    const { attach, keyboard } = createBrowserKeyboard();
+    const guest = new FakeBrowserContents(95);
+    const host = new FakeBrowserContents(96);
+    const command = process.platform === "darwin" ? { meta: true } : { control: true };
+    keyboard.publish(host.id, {
+      menuPrefixes: [
+        {
+          alt: false,
+          code: "KeyR",
+          control: process.platform !== "darwin",
+          meta: process.platform === "darwin",
+          repeat: false,
+          shift: true,
+        },
+      ],
+      prefixes: [
+        {
+          alt: false,
+          code: "KeyR",
+          control: process.platform !== "darwin",
+          meta: process.platform === "darwin",
+          repeat: false,
+          shift: true,
+        },
+      ],
+    });
+    attach({ browserId: "browser-a", contents: guest, hostContents: host });
+
+    const wasPrevented = guest.input(
+      electronInput({ ...command, code: "KeyR", key: "r", shift: true }),
+    );
+
+    expect(wasPrevented).toBe(false);
+    expect(guest.reloads).toEqual([]);
+    expect(guest.ignoredMenuShortcuts).toEqual([true]);
+  });
+
   test("keeps idle policy shortcuts out of the application menu while a chord is pending", () => {
     const { attach, keyboard } = createBrowserKeyboard();
     const guest = new FakeBrowserContents(101);

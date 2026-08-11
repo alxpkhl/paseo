@@ -10,6 +10,9 @@ interface ApplicationMenuOptions {
   onNewWindow: () => void;
 }
 
+// Keep CmdOrCtrl+Shift+R available to the renderer's configurable Review action.
+export const FORCE_RELOAD_ACCELERATOR = "CmdOrCtrl+Alt+Shift+R";
+
 function withBrowserWindow(
   callback: (win: BrowserWindow) => void,
 ): (_item: Electron.MenuItem, baseWin: Electron.BaseWindow | undefined) => void {
@@ -154,7 +157,7 @@ function buildApplicationMenuTemplate(
         },
         {
           label: "Force Reload",
-          accelerator: "CmdOrCtrl+Shift+R",
+          accelerator: FORCE_RELOAD_ACCELERATOR,
           click: withBrowserWindow((win) => {
             reloadActiveBrowserOrWindow({
               win,

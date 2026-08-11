@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { reloadActiveBrowserOrWindow } from "./menu.js";
+import { FORCE_RELOAD_ACCELERATOR, reloadActiveBrowserOrWindow } from "./menu.js";
 
 class FakeWebContents {
   public readonly reloads: string[] = [];
@@ -66,5 +66,11 @@ describe("reloadActiveBrowserOrWindow", () => {
     expect(browserReloads.firstBrowser.reloads).toEqual([]);
     expect(browserReloads.secondBrowser.reloads).toEqual(["force-reload"]);
     expect(browserReloads.secondWindow.webContents.reloads).toEqual([]);
+  });
+});
+
+describe("application menu accelerators", () => {
+  it("leaves CmdOrCtrl+Shift+R available for workspace review", () => {
+    expect(FORCE_RELOAD_ACCELERATOR).toBe("CmdOrCtrl+Alt+Shift+R");
   });
 });
